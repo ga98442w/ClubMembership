@@ -113,6 +113,7 @@ public class MembershipManagement {
             fees = cal.calculateFees(club);
             
             mbr = new SingleClubMember('S', memberID, name, fees , club);
+            
             m.add(mbr);
             mem = mbr.toString();
             
