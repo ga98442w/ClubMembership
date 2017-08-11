@@ -23,35 +23,17 @@ public class FileHandler {
 
         try (BufferedReader reader = new BufferedReader(new FileReader("members.csv")))
         {
-            lineRead = reader.readLine().trim();
+            lineRead = reader.readLine();
             while (lineRead != null)
             {
-                splitLine = lineRead.split(",");
-                splitLine= lineRead.split(" ");
+                splitLine = lineRead.split(", ");
                 
-                for (int i = 0; i < splitLine.length; i++)
-                splitLine[i] = splitLine[i].trim();
-                
-                if (splitLine[0].endsWith(",")) {
-  splitLine[0] = splitLine[0].substring(0, splitLine[0].length() - 1);
-}
-                
-                                if (splitLine[3].endsWith(",")) {
-  splitLine[3] = splitLine[3].substring(0, splitLine[3].length() - 1);
-}
-                       
                 if (splitLine[0].equals("S"))
                 {
-                    int Deka;
-                    
-                        Deka =  Integer.parseInt(splitLine[1]);
-                    String[] SomeStri = splitLine[3].replaceAll("$,", "").split(",");
-                    splitLine[2] = SomeStri[0];
-                    
-                    mem = new SingleClubMember('S', Integer.parseInt(splitLine[1]), splitLine[2], Double.parseDouble(splitLine[3])  , Integer.parseInt(splitLine[4]));
+                    mem = new SingleClubMember('S', Integer.parseInt(splitLine[1]), splitLine[2], Double.parseDouble(splitLine[3]), Integer.parseInt(splitLine[4]));
                 }else
                 {
-                    mem = new MultiClubMember('M', Integer.parseInt(splitLine[1]), splitLine[2], Double.parseDouble(splitLine[3])  , Integer.parseInt(splitLine[4]));                  
+                    mem = new MultiClubMember('M', Integer.parseInt(splitLine[1]), splitLine[2], Double.parseDouble(splitLine[3]), Integer.parseInt(splitLine[4]));                  
                 }
                 
                 m.add(mem);
@@ -59,7 +41,7 @@ public class FileHandler {
 
             }
 
-        }     
+        }    
         catch (IOException e)
         {
             System.out.println(e.getMessage());

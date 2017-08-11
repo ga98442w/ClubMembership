@@ -74,7 +74,7 @@ public double getFees()
 
 public String toString()
 {
-  return  memberType + ", "  + memberID + " " + name + " " + fees;
+  return  memberType + ", "  + memberID + ", " + name + ", " + fees;
 }
 
 }
